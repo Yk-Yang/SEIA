@@ -86,6 +86,7 @@ else
         old_center(m,:)=ae(m).center(end,:);
     end
     clear new_center new_bound index dis ratio wh track track_no new
+    track_no=[ ]; % create empty track_no avoiding program cracked when there no eddy tracked
     for n=1:length(ae_cir)
         new_center=ae_cir(n).center;new_bound=cell2mat(ae_cir(n).bound);
         [index,dis]=near(old_center,new_center,1); % find the 2 colsest centers
@@ -218,6 +219,7 @@ else
         old_center(m,:)=ce(m).center(end,:);  % ce(:).center(end,:)
     end
     clear new_center new_bound index dis ratio wh track track_no new
+    track_no=[ ]; % create empty track_no avoiding program cracked when there no eddy tracked
     for n=1:length(ce_cir)
         new_center=ce_cir(n).center;new_bound=cell2mat(ce_cir(n).bound);
         [index,dis]=near(old_center,new_center,1); % find the 2 colsest centers
