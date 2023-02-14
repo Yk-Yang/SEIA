@@ -1,12 +1,12 @@
 clear; close all; clc
 
-cd F:\SCSEddy\Œ––˝’Ô∂œ\Closed_Streamline\SEIA\SEIA_regional
+cd F:\SCSEddy\√é√ê√ê√Ω√ï√Ø¬∂√è\Closed_Streamline\SEIA\SEIA_regional
 %% Preset path and parameters
 % the path with profiles named 'SLA', 'Output' and 'SEIA'
-main_path='F:\SCSEddy\Œ––˝’Ô∂œ\Closed_Streamline\SEIA\SEIA_regional'  
+main_path='F:\SCSEddy\√é√ê√ê√Ω√ï√Ø¬∂√è\Closed_Streamline\SEIA\SEIA_regional'  
 
 % For regional SEIA, SLA data will be categorized by year and 
-% °Ô should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
+% ¬°√Ø should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
 yr=num2str((1993)');
 
 rslt=0.25; % resolution of input SLA data, unit:degree
