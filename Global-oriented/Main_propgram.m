@@ -20,9 +20,11 @@ mask_n=topo_mask(main_path,area_n,rslt,mask_depth);
 mask_s=topo_mask(main_path,area_s,rslt,mask_depth);
 
 c=1;     % error-compensating correction
-L=1.25;  % half of the mesoscale, unit: degree
+L=125;  % half of the mesoscale, unit: km
+r=6371;         % earth radius (km)
+d=2*pi*r*cosd(1:70)/360;      % distance per degree by latitude (km)
 min_points=10;                   % lower grid points of eddy boundary
-max_points=floor(2*pi*L/rslt)+c; % upper grid points
+max_points_lat=floor(2*pi*L./(rslt*d))+c; % upper grid points by latitude
 
 % among the tracking procedure
 Dt=1.25;  % the largest searching distance of the nearest eddies
@@ -30,7 +32,7 @@ Rt=0.25;  % the overlapping ratio
 
 %% Run the SEIA
 SEIA(main_path,hemi,yr,rslt,mask_n,mask_s,...
-     min_points,max_points,Dt,Rt)
+     min_points,max_points_lat,Dt,Rt)
  
  
  
