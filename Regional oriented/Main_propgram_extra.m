@@ -18,9 +18,11 @@ mask_depth=50; % unit:m
 mask=topo_mask(main_path,area,rslt,mask_depth);
 
 c=1;     % error-compensating correction
-L=1.25;  % half of the mesoscale, unit: degree
+L=125;  % half of the mesoscale, unit: km
+r=6371;         % earth radius (km)
+d=2*pi*r*cosd(1:70)/360;      % distance per degree by latitude (km)
 min_points=10;                   % lower grid points of eddy boundary
-max_points=floor(2*pi*L/rslt)+c; % upper grid points
+max_points_lat=floor(2*pi*L./(rslt*d))+c; % upper grid points by latitude
 
 % among the tracking procedure
 Dt=1.25;  % the largest searching distance of the nearest eddies
@@ -31,7 +33,7 @@ Rt=0.25;  % the overlapping ratio
 % additional calls to functions cal_amp_eke_vor and onedimgrid
 % By Yikai Yang (email: yangyikai@scsio.ac.cn), 2022.7.29
 SEIA_extra(main_path,yr,rslt,mask,...
-           min_points,max_points,Dt,Rt)
+           min_points,max_points_lat,Dt,Rt)
  
  
  
