@@ -2,7 +2,7 @@ clear; close all; clc
 
 %% Preset path and parameters
 % the path with profiles named 'SLA', 'Output' and 'SEIA'
-main_path='F:\SCSEddy\Œ––˝’Ô∂œ\Closed_Streamline\SEIA\SEIA_global'  
+main_path='F:\SCSEddy\√é√ê√ê√Ω√ï√Ø¬∂√è\Closed_Streamline\SEIA\SEIA_global'  
 
 % For global SEIA, SLA data will be seperated into the North and South 
 % hemisphere with corresponding profiles in the 'SLA' profile.
