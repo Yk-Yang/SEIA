@@ -1,6 +1,11 @@
-function [  ] = eddy_output(eddy,path,year,polarity)
+function [times] = eddy_output(times,eddy,path,year,polarity)
 % Output dead eddy
 % By Yikai Yang (email: yangyikai@scsio.ac.cn), 2022.2.21
+
+if times==1
+    delete([path,'/Output/',year,'/',polarity,'_*.mat'])
+    disp('Deleted all previously generated eddies.')
+end
 
 k=1;
 eddy_out=dir([path,'/Output/',year,'/',polarity,'_*.mat']);
@@ -24,5 +29,7 @@ for i=1:length(eddy)
     else
         continue
     end
+end
+times=time+1;
 end
 
