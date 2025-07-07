@@ -3,7 +3,7 @@ clear; close all; clc
 cd F:\SEIA\SEIA_regional
 %% Preset path and parameters
 % the path with profiles named 'SLA', 'Output' and 'SEIA'
-main_path='F:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional'  
+main_path='F:\SEIA\SEIA_regional'  
 
 % For regional SEIA, SLA data will be categorized by year and 
 % ¡ï should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
