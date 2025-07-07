@@ -1,6 +1,6 @@
 clear; close all; clc
 
-cd F:\SCSEddy\SEIA\SEIA_regional
+cd F:\SEIA\SEIA_regional
 %% Preset path and parameters
 % the path with profiles named 'SLA', 'Output' and 'SEIA'
 main_path='F:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional'  
