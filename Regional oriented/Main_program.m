@@ -7,7 +7,7 @@ main_path='F:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional'
 
 % For regional SEIA, SLA data will be categorized by year and 
 % ¡ï should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
-yr=num2str((1993)');
+yr=num2str((1993:1994)');
 
 rslt=0.25; % resolution of input SLA data, unit:degree
 
@@ -18,7 +18,7 @@ mask_depth=50; % unit:m
 mask=topo_mask(main_path,area,rslt,mask_depth);
 
 c=1;     % error-compensating correction
-L=125;  % half of the mesoscale, unit: km
+L=150;  % half of the mesoscale, unit: km
 r=6371;         % earth radius (km)
 d=2*pi*r*cosd(1:70)/360;      % distance per degree by latitude (km)
 min_points=10;                   % lower grid points of eddy boundary
