@@ -1,6 +1,6 @@
 Run the SEIA:
 
--1. Downlaod ETOPO1 dataset: http://www.doi.org/10.11922/sciencedb.o00035.00004
+-1. Downlaod ETOPO1 data in mat format: http://www.doi.org/10.11922/sciencedb.o00035.00004
 
 -2. Pre-set pratameters and run the 'Main_program'
 
