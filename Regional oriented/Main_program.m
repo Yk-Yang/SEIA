@@ -1,6 +1,6 @@
 clear; close all; clc
 
-cd G:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional
+cd G:\SCSEddy\Closed_Streamline\SEIA\SEIA_regional
 %% 
 % The automatic scale?selective eddy identification algorithm (SEIA).
 %--------------------------------------------------------------------------  
