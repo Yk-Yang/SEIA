@@ -46,8 +46,10 @@ mask=topo_mask(main_path,area,rslt,mask_depth);
 c=1;     % error-compensating correction
 L=150;  % half of the mesoscale, unit: km
 r=6371;         % earth radius (km)
-d=2*pi*r*cosd(1:70)/360;      % distance per degree by latitude (km)
-min_points=10;                   % lower grid points of eddy boundary
+d_lon=2*pi*r/360;                 % distance per degree by longitude (km)
+d_lat=2*pi*r*cosd([1:70]')/360;      % distance per degree by latitude(1-70°) (km)
+d=(zeros(length(d_lat),1)+d_lon+d_lat)/2;         % approximately distance per degree (km)
+min_points=10;                    % lower grid points of eddy boundary
 max_points_lat=floor(2*pi*L./(rslt*d))+c; % upper grid points by latitude
 
 % among the tracking procedure
