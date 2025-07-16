@@ -33,7 +33,7 @@ main_path='G:\SEIA_regional'
 
 % For regional SEIA, SLA data will be categorized by year and 
 % ¡ï should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
-yr=num2str((1993)');
+yr=num2str((1993:1993)');
 
 rslt=0.25; % resolution of input SLA data, unit:degree
 
