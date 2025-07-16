@@ -32,7 +32,7 @@ while ori<=length(ctr)
     llon=LON(arrayfun(@(x) near(LON,x),llon)); % trace back to the original grids
     llat=LAT(arrayfun(@(x) near(LAT,x),llat));
     [llon,llat]=unique_points(llon,llat);      % remove repatitive points
-    max_points=max_points_lat(ceil(nanmean(llat))); % determine max points by latitude    
+    max_points=max_points_lat(near(1:70,nanmean(llat))); % determine max points by latitude    
     if length(llon)>=min_points && length(llon)<=max_points && ...
             (llon(1)==llon(end) && llat(1)==llat(end)) % ¡ï Closed contour
         sla_c(k).lon=llon; sla_c(k).lat=llat; k=k+1;
