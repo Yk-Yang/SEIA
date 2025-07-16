@@ -24,9 +24,9 @@ while ori<=length(ctr)
     llon=LON(arrayfun(@(x) near(LON,x),llon)); % trace back to the original grids
     llat=LAT(arrayfun(@(x) near(LAT,x),llat));
     [llon,llat]=unique_points(llon,llat);      % remove repatitive points
-    max_points=max_points_lat(ceil(nanmean(llat))); % determine max points by latitude
+    max_points=max_points_lat(near(1:70,nanmean(llat))); % determine max points by latitude
     if length(llon)>=min_points && length(llon)<=max_points && ...
-            (llon(1)==llon(end) && llat(1)==llat(end)) % ¡ï Closed contour
+            (llon(1)==llon(end) && llat(1)==llat(end)) % Â¡Ã¯ Closed contour
         sla_c(k).lon=llon; sla_c(k).lat=llat; k=k+1;
     end
     ori=ori+points+1;
@@ -44,7 +44,7 @@ for i=1:length(sla_c)
     in=inpolygon(x_max,y_max,llon,llat);
     in2=inpolygon(x_min,y_min,llon,llat); % check minimuns fall in AE contours or not
     [~,lo]=find(in==1);
-    if sum(in2)==0 && length(lo)==1 % ¡ï Mononuclear
+    if sum(in2)==0 && length(lo)==1 % Â¡Ã¯ Mononuclear
         occupy_num=[occupy_num,i];  % qualified closed contours
         bound0=cell2mat(ae_cir(lo).bound); 
         if length(llon)>length(bound0) 
@@ -54,7 +54,7 @@ for i=1:length(sla_c)
             % ae_cir(lo).center=[mean(llon),mean(llat)]; % tacke centroid as center
             ae_cir(lo).radius=radius_compute(x_max(lo),y_max(lo),llon,llat); % compute radius
         end
-     elseif sum(in2)==0 && length(lo)>=2 % ¡ï Polyonuclear: >=2
+     elseif sum(in2)==0 && length(lo)>=2 % Â¡Ã¯ Polyonuclear: >=2
         polynuclear=num2cell(zeros(length(lo),1)+1);
         [ae_cir(lo).McS]=polynuclear{:}; % 1: suspected; 0: not suspected   
     end
@@ -95,7 +95,7 @@ else
             end
         end
         [~,wh]=max(ratio);
-        if ~isnan(ratio(wh)) && max(ratio)>=Rt % ¡ï successfully tracked
+        if ~isnan(ratio(wh)) && max(ratio)>=Rt % Â¡Ã¯ successfully tracked
             track=index(wh);track_no(n)=track;
             if ae(track).alive==-1 % missing in the last time step, change the Replaced infos
                 mbou=mean_bound(ae(track).bound(end),ae_cir(n).bound,LON,LAT); % construct the misssing bound
@@ -110,7 +110,7 @@ else
             ae(track).McS=[ae(track).McS;ae_cir(n).McS];
             ae(track).alive=1;
             old_center(track,:)=[NaN,NaN]; % remove the tracked eddy to avoid cross tracking
-        else % ¡ï a new-born eddy
+        else % Â¡Ã¯ a new-born eddy
             new=length(ae)+1;
             ae(new).time=ae_cir(n).time;
             ae(new).bound=ae_cir(n).bound;
@@ -121,7 +121,7 @@ else
         end
     end
     missing_no=setdiff([1:ae_num],track_no); % old eddies that are not tracked 
-    for i=missing_no % ¡ï failed to be tracked
+    for i=missing_no % Â¡Ã¯ failed to be tracked
         alive=ae(i).alive;
         if alive==1 % alive in the last time step
             ae(i).time=[ae(i).time;(ae(i).time(end))+1]; 
@@ -139,7 +139,7 @@ else
             ae(i).alive=0;  % punish to be dead
         end
     end
-    % ¡ï ouput dead ae
+    % Â¡Ã¯ ouput dead ae
     if year==length(str_sla) && day==length(TIME)
         ae_dead=ae;
     else
@@ -211,7 +211,7 @@ else
             end
         end
         [~,wh]=max(ratio);
-        if ~isnan(ratio(wh)) && max(ratio)>=Rt % ¡ï successfully tracked
+        if ~isnan(ratio(wh)) && max(ratio)>=Rt % Â¡Ã¯ successfully tracked
             track=index(wh);track_no(n)=track;
             if ce(track).alive==-1 % missing in the last time step, change the Replaced infos
                 mbou=mean_bound(ce(track).bound(end),ce_cir(n).bound,LON,LAT); % construct the misssing bound
@@ -226,7 +226,7 @@ else
             ce(track).McS=[ce(track).McS;ce_cir(n).McS];
             ce(track).alive=1;
             old_center(track,:)=[NaN,NaN]; % remove the tracked eddy to avoid cross tracking
-        else % ¡ï a new-born eddy
+        else % Â¡Ã¯ a new-born eddy
             new=length(ce)+1;
             ce(new).time=ce_cir(n).time;
             ce(new).bound=ce_cir(n).bound;
@@ -237,7 +237,7 @@ else
         end
     end
     missing_no=setdiff([1:ce_num],track_no); % old eddies that are not tracked 
-    for i=missing_no % ¡ï failed to be tracked
+    for i=missing_no % Â¡Ã¯ failed to be tracked
         alive=ce(i).alive;
         if alive==1  % alive in the last time step
             ce(i).time=[ce(i).time;(ce(i).time(end))+1]; 
@@ -256,7 +256,7 @@ else
         end
     end
     
-    % ¡ï ouput dead ce
+    % Â¡Ã¯ ouput dead ce
     if year==length(str_sla) && day==length(TIME)
         ce_dead=ce;
     else
