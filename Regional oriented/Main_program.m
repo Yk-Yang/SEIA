@@ -1,6 +1,6 @@
 clear; close all; clc
 
-cd G:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional
+cd G:\SCSEddy\ÃŽÃÃÃ½Ã•Ã¯Â¶Ã\Closed_Streamline\SEIA\SEIA_regional
 %% 
 % The automatic scale?selective eddy identification algorithm (SEIA).
 %--------------------------------------------------------------------------  
@@ -9,7 +9,7 @@ cd G:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional
 %  Please cite correctly:
 %  Yang, Y., Zeng, L. & Wang, Q. Assessment of global eddies from satellite
 %  data by a scale-selective eddy identification algorithm (SEIA). Clim Dyn
-%  62, 881¨C894 (2024).
+%  62, 881Â¨C894 (2024).
 %--------------------------------------------------------------------------
 % Main_program.m
 %  |
@@ -22,6 +22,7 @@ cd G:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional
 %  |     |--> intersection_ratio.m
 %  |     |--> mean_bound.m
 %  |     |--> eddy_output.m
+%  |     |--> cal_amp_eke_vor & onedimgrid (extra version)
 %--------------------------------------------------------------------------
 %  Note: Please ensure that the SLA data you prepare is consistent with the sample.
 %  Note: You need the global topo data named ETOPO1.mat which will be used by
@@ -31,7 +32,7 @@ cd G:\SCSEddy\ÎÐÐýÕï¶Ï\Closed_Streamline\SEIA\SEIA_regional
 main_path='G:\SEIA_regional'  
 
 % For regional SEIA, SLA data will be categorized by year and 
-% ¡ï should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
+% Â¡Ã¯ should include infos of 'lon', 'lat', 'sla' and 'Time(datenum)'.
 yr=num2str((1993)');
 
 rslt=0.25; % resolution of input SLA data, unit:degree
